@@ -20,8 +20,8 @@ class CardData {
   });
 }
 
-class CardPlanet extends StatelessWidget {
-  const CardPlanet({
+class OnBoardingCard extends StatelessWidget {
+  const OnBoardingCard({
     required this.data,
     Key? key,
   }) : super(key: key);
