@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:switchplus_employee/presentation/screens/onboarding_screen.dart';
+import 'package:switchplus_employee/modules/onboarding_screen.dart';
+import 'package:switchplus_employee/screens/onboarding_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: OnBoardingScreen(),
     );
