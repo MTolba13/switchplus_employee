@@ -4,8 +4,8 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:switchplus_employee/logic/App_cubit/app_cubit.dart';
 import 'package:switchplus_employee/styles/colors.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: defaultColor,
           ),
-          body: Text('Home'),
+          body: Text('Settings'),
         );
       },
     );

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:switchplus_employee/cache/cache_helper.dart';
 import 'package:switchplus_employee/constants/constansts.dart';
+import 'package:switchplus_employee/layout/layout.dart';
 import 'package:switchplus_employee/logic/App_cubit/app_cubit.dart';
 import 'package:switchplus_employee/modules/home_screen.dart';
 import 'package:switchplus_employee/modules/login_screen.dart';
@@ -20,7 +21,7 @@ Future<void> main() async {
   uId = CacheHelper.getData(key: 'uId');
 
   if (uId != null) {
-    widget = const HomeScreen();
+    widget = const AppLayout();
   } else {
     widget = const OnBoardingScreen();
   }

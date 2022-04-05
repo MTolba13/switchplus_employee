@@ -14,3 +14,5 @@ class AppGetUserErrorState extends AppState {
 
   AppGetUserErrorState(this.error);
 }
+
+class AppChangeBottomNavState extends AppState {}
