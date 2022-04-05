@@ -31,7 +31,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         title: 'Sales Tracker',
         body: 'you can modify your daily sales and track it day by day'),
     BoardingModel(
-        image: 'assets/images/sale.png',
+        image: 'assets/images/Discount-cuate.png',
         title: 'In Store Offer',
         body: 'you will find the updated in store offers'),
     BoardingModel(
@@ -60,15 +60,18 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.grey[50],
+          elevation: 0,
           actions: [
             TextButton(
               onPressed: sumbit,
               child: Text(
                 'Skip',
                 style: TextStyle(
-                  color: defaultColor,
+                  color: firstColor,
                   fontFamily: 'Helvetica',
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 19,
                 ),
               ),
             ),
@@ -105,7 +108,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 children: [
                   SmoothPageIndicator(
                     effect: ExpandingDotsEffect(
-                      activeDotColor: defaultColor,
+                      activeDotColor: firstColor,
+                      dotColor: secondColor,
                       dotHeight: 10,
                       expansionFactor: 3,
                       dotWidth: 10,
@@ -116,6 +120,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   ),
                   const Spacer(),
                   FloatingActionButton(
+                    backgroundColor: secondColor,
+                    elevation: 10,
                     onPressed: () {
                       if (isLast) {
                         sumbit();
@@ -128,8 +134,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         );
                       }
                     },
-                    child: const Icon(
-                      IconBroken.Arrow___Down_Square,
+                    child: Icon(
+                      IconBroken.Arrow___Right,
+                      color: firstColor,
                     ),
                   ),
                 ],
@@ -152,9 +159,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           ),
           Text(
             '${model.title}',
-            style: const TextStyle(
-              fontSize: 24,
+            style: TextStyle(
+              color: firstColor,
+              fontFamily: 'Helvetica',
               fontWeight: FontWeight.bold,
+              fontSize: 38,
             ),
           ),
           const SizedBox(
@@ -162,9 +171,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           ),
           Text(
             '${model.body}',
-            style: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
+            style: TextStyle(
+              color: secondColor,
+              fontFamily: 'Helvetica',
+              // fontWeight: FontWeight.w500,
+              fontSize: 19,
             ),
           ),
           const SizedBox(

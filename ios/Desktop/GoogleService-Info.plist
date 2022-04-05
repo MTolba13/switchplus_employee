@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>87419160574-bvhj7sshfupcfiv1uclb3cc4cuilsa7l.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.87419160574-bvhj7sshfupcfiv1uclb3cc4cuilsa7l</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>87419160574-h72pv76ugm5tvooi41898ao8vh9mg36n.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBdFSAcMuvMbSIr_-MdnfrvE6nr0Uz0Ks8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>87419160574</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.switchplusEmployee</string>
+	<key>PROJECT_ID</key>
+	<string>switchplus-employee</string>
+	<key>STORAGE_BUCKET</key>
+	<string>switchplus-employee.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:87419160574:ios:7dd4fe89bf9203780262af</string>
+</dict>
+</plist>

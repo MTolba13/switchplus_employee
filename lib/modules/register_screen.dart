@@ -2,42 +2,34 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:switchplus_employee/cache/cache_helper.dart';
 import 'package:switchplus_employee/components/components.dart';
 import 'package:switchplus_employee/logic/login/cubit/login_cubit.dart';
+import 'package:switchplus_employee/logic/register/cubit/register_cubit.dart';
 import 'package:switchplus_employee/modules/home_screen.dart';
-import 'package:switchplus_employee/modules/register_screen.dart';
 import 'package:switchplus_employee/styles/colors.dart';
 
 var formKey = GlobalKey<FormState>();
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+// ignore: must_be_immutable
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
+    var phoneController = TextEditingController();
+    var nameController = TextEditingController();
 
     return BlocProvider(
-      create: (context) => LoginCubit(),
-      child: BlocConsumer<LoginCubit, LoginState>(
+      create: (context) => RegisterCubit(),
+      child: BlocConsumer<RegisterCubit, RegisterState>(
         listener: (context, state) {
-          if (state is LoginErrorState) {
-            showToast(
-              text: state.error,
+          if (state is CreateUserSuccessState) {
+            navigateAndFinish(
+              context,
+              const HomeScreen(),
             );
-          }
-          if (state is LoginSuccessState) {
-            CacheHelper.saveData(
-              key: 'uId',
-              value: state.uId,
-            ).then((value) {
-              navigateAndFinish(
-                context,
-                const HomeScreen(),
-              );
-            });
           }
         },
         builder: (context, state) {
@@ -45,6 +37,7 @@ class LoginScreen extends StatelessWidget {
             appBar: AppBar(
               backgroundColor: Colors.grey[50],
               elevation: 0,
+              foregroundColor: secondColor,
             ),
             body: Center(
               child: SingleChildScrollView(
@@ -56,7 +49,7 @@ class LoginScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const Text(
-                          'Login',
+                          'Register',
                           style: TextStyle(
                             fontSize: 45,
                             fontWeight: FontWeight.bold,
@@ -67,7 +60,7 @@ class LoginScreen extends StatelessWidget {
                           height: 30,
                         ),
                         Text(
-                          'login now to communicate with colleagues ',
+                          'Register now to browse our hot offer',
                           style:
                               Theme.of(context).textTheme.bodyText1!.copyWith(
                                     color: Colors.grey,
@@ -76,6 +69,34 @@ class LoginScreen extends StatelessWidget {
                         ),
                         const SizedBox(
                           height: 30,
+                        ),
+                        defaultFormField(
+                          controller: nameController,
+                          type: TextInputType.name,
+                          label: 'Your Name',
+                          prefix: Icons.person,
+                          validate: (value) {
+                            if (value.isEmpty) {
+                              return 'please enter your name';
+                            }
+                          },
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        defaultFormField(
+                          controller: phoneController,
+                          type: TextInputType.phone,
+                          label: 'Phone Number',
+                          prefix: Icons.phone_android_outlined,
+                          validate: (value) {
+                            if (value.isEmpty) {
+                              return 'please enter your phone';
+                            }
+                          },
+                        ),
+                        const SizedBox(
+                          height: 15,
                         ),
                         defaultFormField(
                           controller: emailController,
@@ -92,23 +113,26 @@ class LoginScreen extends StatelessWidget {
                           height: 15,
                         ),
                         defaultFormField(
-                          isPassword: true,
+                          isPassword: RegisterCubit.get(context).isPassword,
                           controller: passwordController,
                           type: TextInputType.visiblePassword,
                           label: 'Password ',
                           prefix: Icons.lock_outline_rounded,
                           suffixPressed: () {
-                            LoginCubit.get(context).changePasswordVisibility();
+                            RegisterCubit.get(context)
+                                .changePasswordVisibility();
                           },
                           onSumbit: (value) {
                             if (formKey.currentState!.validate()) {
-                              LoginCubit.get(context).userLogin(
+                              RegisterCubit.get(context).userRegister(
                                 email: emailController.text,
                                 password: passwordController.text,
+                                name: nameController.text,
+                                phone: phoneController.text,
                               );
                             }
                           },
-                          suffix: LoginCubit.get(context).suffix,
+                          suffix: RegisterCubit.get(context).suffix,
                           validate: (value) {
                             if (value.isEmpty) {
                               return 'please enter your Password';
@@ -131,51 +155,26 @@ class LoginScreen extends StatelessWidget {
                             color: HexColor('004899'),
                             onPressed: () {
                               if (formKey.currentState!.validate()) {
-                                LoginCubit.get(context).userLogin(
+                                RegisterCubit.get(context).userRegister(
+                                  name: nameController.text,
+                                  phone: phoneController.text,
                                   email: emailController.text,
                                   password: passwordController.text,
                                 );
                               }
                             },
                             child: const Text(
-                              'LOGIN',
+                              'REGISTER',
                               style: TextStyle(
                                 fontFamily: 'Helvetica',
                                 fontSize: 20,
                               ),
                             ),
                           ),
-                          condition: true,
+                          condition: state is! LoginLoadingState,
                           fallback: (context) =>
                               const Center(child: CircularProgressIndicator()),
                         ),
-                        const SizedBox(
-                          height: 25,
-                        ),
-                        Text(
-                          'Don\'t have an account?',
-                          style:
-                              Theme.of(context).textTheme.bodyText1!.copyWith(
-                                    color: Colors.grey,
-                                    fontFamily: 'Helvetica',
-                                  ),
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            navigateTo(
-                              context,
-                              const RegisterScreen(),
-                            );
-                          },
-                          child: Text(
-                            'Register Now',
-                            style: TextStyle(
-                              fontSize: 13,
-                              fontFamily: 'Helvetica',
-                              color: secondColor,
-                            ),
-                          ),
-                        )
                       ],
                     ),
                   ),

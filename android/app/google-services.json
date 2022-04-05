@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "87419160574",
+    "project_id": "switchplus-employee",
+    "storage_bucket": "switchplus-employee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87419160574:android:2a4c11fa4deba3810262af",
+        "android_client_info": {
+          "package_name": "com.example.switchplus_employee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87419160574-h72pv76ugm5tvooi41898ao8vh9mg36n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.switchplus_employee",
+            "certificate_hash": "7edf889cb6d867d7574581d9ba13899c51c6970a"
+          }
+        },
+        {
+          "client_id": "87419160574-2m0u00upmhjme7btcf790afnpm62t7hb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVAhY-XY8Lkj5qfsR23HkkDJVjMGzov4Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87419160574-2m0u00upmhjme7btcf790afnpm62t7hb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
