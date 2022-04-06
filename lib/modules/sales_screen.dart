@@ -13,9 +13,6 @@ class SalesScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(
-            backgroundColor: defaultColor,
-          ),
           body: Text('Sales'),
         );
       },
