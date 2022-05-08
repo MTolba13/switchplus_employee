@@ -12,7 +12,7 @@ class SettingsScreen extends StatelessWidget {
     return BlocConsumer<AppCubit, AppState>(
       listener: (context, state) {},
       builder: (context, state) {
-        return Scaffold(
+        return const Scaffold(
           body: Text('Settings'),
         );
       },

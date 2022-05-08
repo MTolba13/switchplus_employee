@@ -35,7 +35,7 @@ class LoginScreen extends StatelessWidget {
             ).then((value) {
               navigateAndFinish(
                 context,
-                const HomeScreen(),
+                HomeScreen(),
               );
             });
           }

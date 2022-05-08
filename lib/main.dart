@@ -8,6 +8,7 @@ import 'package:switchplus_employee/logic/App_cubit/app_cubit.dart';
 import 'package:switchplus_employee/modules/home_screen.dart';
 import 'package:switchplus_employee/modules/login_screen.dart';
 import 'package:switchplus_employee/modules/onboarding_screen.dart';
+import 'package:switchplus_employee/styles/theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
         builder: (context, state) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
+            theme: lightTheme,
             home: startWidget,
           );
         },

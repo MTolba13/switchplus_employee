@@ -32,6 +32,7 @@ class AppLayout extends StatelessWidget {
             ],
             title: Text(
               cubit.titles[cubit.currentindex],
+              style: const TextStyle(fontFamily: 'Helvetica'),
             ),
           ),
           body: cubit.screens[cubit.currentindex],
@@ -48,19 +49,19 @@ class AppLayout extends StatelessWidget {
                     IconBroken.Home,
                   )),
               const BottomNavigationBarItem(
+                  label: 'Exams',
+                  icon: Icon(
+                    IconBroken.Document,
+                  )),
+              const BottomNavigationBarItem(
+                  label: 'Sales',
+                  icon: Icon(
+                    IconBroken.Chart,
+                  )),
+              const BottomNavigationBarItem(
                   label: 'Chats',
                   icon: Icon(
                     IconBroken.Chat,
-                  )),
-              const BottomNavigationBarItem(
-                  label: 'Post',
-                  icon: Icon(
-                    IconBroken.Paper_Upload,
-                  )),
-              const BottomNavigationBarItem(
-                  label: 'Users',
-                  icon: Icon(
-                    IconBroken.Location,
                   )),
               const BottomNavigationBarItem(
                 label: 'Settings',

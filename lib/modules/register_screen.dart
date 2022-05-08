@@ -28,7 +28,7 @@ class RegisterScreen extends StatelessWidget {
           if (state is CreateUserSuccessState) {
             navigateAndFinish(
               context,
-              const HomeScreen(),
+              HomeScreen(),
             );
           }
         },

@@ -16,3 +16,11 @@ class AppGetUserErrorState extends AppState {
 }
 
 class AppChangeBottomNavState extends AppState {}
+
+class GetPricesSuccessState extends AppState {}
+
+class GetPricesErrorState extends AppState {
+  final String error;
+
+  GetPricesErrorState(this.error);
+}

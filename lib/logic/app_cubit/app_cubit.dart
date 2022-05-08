@@ -1,8 +1,11 @@
+// ignore_for_file: unnecessary_import
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:switchplus_employee/constants/constansts.dart';
+import 'package:switchplus_employee/models/price.dart';
 import 'package:switchplus_employee/models/user.dart';
 import 'package:switchplus_employee/modules/chat_screen.dart';
 import 'package:switchplus_employee/modules/exams_screen.dart';
@@ -52,7 +55,7 @@ class AppCubit extends Cubit<AppState> {
 
   void changeBottomNav(int index) {
     // if (index == 2) {
-    //   emit(SocialNewPostState());
+    //   emit(SocialNewPricestate());
     // } else {
     //   currentindex = index;
     //   emit(SocialChangeBottomNavState());
@@ -60,5 +63,21 @@ class AppCubit extends Cubit<AppState> {
 
     currentindex = index;
     emit(AppChangeBottomNavState());
+  }
+
+  List<PriceModel> prices = [];
+  List<String> pricesId = [];
+  List<String> iPhone = [];
+
+  void getPrices() {
+    FirebaseFirestore.instance
+        .collection('Prices')
+        .doc('iPhone')
+        .get()
+        .then((value) {
+      // emit(GetPricesSuccessState());
+    }).catchError((error) {
+      emit(GetPricesErrorState(error.toString()));
+    });
   }
 }

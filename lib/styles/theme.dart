@@ -9,13 +9,14 @@ ThemeData lightTheme = ThemeData(
     appBarTheme: AppBarTheme(
         titleSpacing: 20,
         systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: Colors.grey[50],
-            statusBarIconBrightness: Brightness.light),
+          statusBarColor: Colors.grey[50],
+          statusBarIconBrightness: Brightness.light,
+        ),
         backgroundColor: Colors.grey[50],
         elevation: 0,
         titleTextStyle: const TextStyle(
           fontFamily: 'Helvetica',
-          color: Colors.black,
+          color: Colors.white,
           fontSize: 23,
           fontWeight: FontWeight.bold,
         ),
